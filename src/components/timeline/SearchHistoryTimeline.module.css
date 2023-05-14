@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.search-history-label {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.timeline-item {
+  cursor: pointer;
+  padding: 5px;
+}
+.timeline-item:hover {
+  background-color: white;
+}

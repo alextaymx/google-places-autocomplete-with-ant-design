@@ -3,23 +3,77 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "postbuild": "next-sitemap --config next-sitemap.config.js",
+    "build-stats": "cross-env ANALYZE=true npm run build",
+    "clean": "rimraf .next out",
+    "lint": "next lint",
+    "lint:fix": "eslint src --fix && npm run format",
+    "lint:strict": "eslint src",
+    "typecheck": "tsc --noEmit --incremental false && tsc --noEmit --pretty && tsc --project cypress --noEmit --pretty",
+    "format": "next lint --fix && prettier '**/*.{json,yaml,ts,tsx,js,jsx}' --write --ignore-path .gitignore",
+    "format:check": "prettier -c '**/*.{json,yaml,ts,tsx,js,jsx}' --ignore-path .gitignore",
+    "prepare": "husky install",
+    "next-sitemap": "^4.0.7"
   },
   "dependencies": {
     "@ant-design/icons": "^4.8.0",
+    "@googlemaps/js-api-loader": "^1.15.1",
+    "@reduxjs/toolkit": "^1.9.5",
     "antd": "^5.0.0",
+    "google-map-react": "^2.2.1",
+    "google-maps-react-markers": "^1.2.3",
     "next": "latest",
+    "next-sitemap": "^4.0.7",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-redux": "^8.0.5",
+    "use-debounce": "^9.0.4"
   },
   "browser": {
     "fs": false,
     "path": false
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^13.4.2",
+    "@types/google-map-react": "^2.1.7",
+    "@types/google.maps": "^3.53.1",
     "@types/node": "18.0.3",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
+    "eslint": "^8.38.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-next": "^13.3.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-cypress": "^2.13.2",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jest": "^27.2.1",
+    "eslint-plugin-jest-dom": "^4.0.3",
+    "eslint-plugin-jest-formatting": "^3.1.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-storybook": "^0.6.11",
+    "eslint-plugin-tailwindcss": "^3.11.0",
+    "eslint-plugin-testing-library": "^5.10.3",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.1",
+    "prettier": "^2.8.7",
+    "rimraf": "^5.0.0",
     "typescript": "4.7.4"
-  }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "eslint",
+      "prettier -w"
+    ],
+    "**/*.{json,css,scss,md,webmanifest}": [
+      "prettier -w"
+    ]
+  },
+  "author": "Alex Tay (https://github.com/alextaymx)"
 }
