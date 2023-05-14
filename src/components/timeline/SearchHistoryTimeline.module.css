@@ -12,7 +12,7 @@
 
 .timeline-item {
   cursor: pointer;
-  padding: 5px;
+  padding: 0 5px;
 }
 .timeline-item:hover {
   background-color: white;

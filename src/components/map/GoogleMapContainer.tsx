@@ -12,7 +12,7 @@ const defaultMapProps = {
     lat: 3.140853,
     lng: 101.693207,
   },
-  zoom: 11,
+  zoom: 15,
 };
 
 function GoogleMapContainer(props: Props) {
@@ -28,7 +28,7 @@ function GoogleMapContainer(props: Props) {
   const { lat, lng } = currentGeocode;
 
   return (
-    <div style={{ height: '100vh', width: '100%' }}>
+    <div style={{ height: '80vh', width: '100%' }}>
       <GoogleMapReact
         key={`${lat}-${lng}`}
         libraries={['places']}
