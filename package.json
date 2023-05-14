@@ -23,11 +23,13 @@
     "antd": "^5.0.0",
     "google-map-react": "^2.2.1",
     "google-maps-react-markers": "^1.2.3",
+    "lodash": "^4.17.21",
     "next": "latest",
     "next-sitemap": "^4.0.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "^8.0.5",
+    "redux-persist": "^6.0.0",
     "use-debounce": "^9.0.4"
   },
   "browser": {
@@ -38,6 +40,7 @@
     "@next/bundle-analyzer": "^13.4.2",
     "@types/google-map-react": "^2.1.7",
     "@types/google.maps": "^3.53.1",
+    "@types/lodash": "^4.14.194",
     "@types/node": "18.0.3",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
