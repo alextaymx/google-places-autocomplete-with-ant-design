@@ -9,7 +9,8 @@ import { useSearchSlice } from '@/hooks/useSearchSlice';
 type Props = {};
 
 function SearchHistoryTimeline(props: Props) {
-  const { searchHistory, setGeocodeByPlaceId } = useSearchSlice();
+  const { searchHistory, setGeocodeByPlaceId, removeAllSearchHistory } =
+    useSearchSlice();
 
   const handleClick = (history: AutocompleteOption) => {
     setGeocodeByPlaceId(history.value.place_id);
@@ -32,7 +33,13 @@ function SearchHistoryTimeline(props: Props) {
       <Alert
         message={
           <div className={styles['search-history-label']}>
-            Past Search Histories
+            <span>Past Search Histories</span>
+            <span
+              className={styles['clear-all-btn']}
+              onClick={() => removeAllSearchHistory()}
+            >
+              Clear All
+            </span>
           </div>
         }
         type='info'
